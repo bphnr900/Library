@@ -1,0 +1,13 @@
+﻿@model Library.Models.Book
+
+@{
+    ViewBag.Title = "SelectSample";
+}
+
+<h2>SelectSample</h2>
+
+@Html.DropDownList("Type","Select a Value")
+
+@Html.DropDownListFor(model => model.Id,(IEnumerable<SelectListItem>)ViewBag.Type,"Select a Value",new { @class = "Title_list"})
+<br />
+  

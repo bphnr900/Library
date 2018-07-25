@@ -1,0 +1,30 @@
+﻿@model  IEnumerable<Library.Models.Book>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+@using (Html.BeginForm("Search","Begin",FormMethod.Get,new { @class = "form-inlines" }))
+{
+    @Html.Label("keyword", "キーワード", new { @class = "control-label"})
+    @Html.TextBox("keyword", null, new { @class = "form-control"})
+    <input type="submit" value="検索" class="btn btn-info"/>
+}
+<hr/>
+<table class="table">
+    <tr>
+        <th>図書番号</th>
+        <th>@Html.DisplayNameFor(model => model.Name)</th>
+        <th>@Html.DisplayNameFor(model => model.Author)</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Group.GroupCode)-@Html.DisplayFor(modelItem => item.BookType.TypeName)-@Html.DisplayFor(modelItem => item.No)</td>
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.Author)</td>
+        </tr>
+    }
+</table>

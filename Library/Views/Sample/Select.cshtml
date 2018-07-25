@@ -1,0 +1,13 @@
+﻿@model Library.Models.Book;
+
+@{
+    ViewBag.Title = "Select";
+}
+
+<h2>Select</h2>
+
+@Html.DropDownListFor(
+    (IEnumerable<SelectItemList>)ViewBag.SelectOption,
+    "選択してください",
+    new {@class = "title_list"}
+    )<br/>
